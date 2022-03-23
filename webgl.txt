@@ -1,0 +1,122 @@
+--WebGL--
+
+	INTRODUCTION A WEBGL
+
+	1) -Définition
+
+	WebGL (la bibliothèque de graphismes web) est une API JavaScript pour l'affichage de graphismes 2D et 3D dans n'importe quel navigateur web compatible sans utilisation de modules complémentaires. Elle est basée sur OpenGL.
+
+	
+	2-) Constantes et types
+
+	WebGL fournit plusieurs constantes qui sont transmises par des fonctions. Toutes les constantes sont de type GLenum. 
+
+	II-Les fonctionnalités 
+
+	les textures 3D,
+	les objets Sampler,
+	les objets de tampon Uniform,
+	les objets Sync,
+	les objets Query,
+	les objets Tranform Feedback,
+	Des extensions promues, qui sont maintenant essentielles pour WebGL 2 : les objets Vertex Array, l'instanciation, les cibles de rendu multiples, la profondeur de fragment.
+	
+	1) -Les Variables WebGL	
+
+
+	Il existe 2 types de programmes Shader ( Shader de sommet et Shader de fragment ) qui sont accessibles par 3 types de stockages de données (variables). Ces variables en question sont Varyings, Uniforms, et Attributes.
+	
+	*Attributes: Les infos stockées par les attributes sont partagées entre le code Js et le programme shader de sommet. Ces données sont les couleurs, les coordonnées de texture et toute autre donnée calculée ou recupérée.
+	
+	*Varyings: Ce sont des variables déclarées par le shader de sommet. Elles sont utilisées pour transmettre des données entre le shader de sommet et le shader de fragment.
+
+	*Uniforms: Ils sont définis par le code Javascript sont disponibles à la fois par le shader de sommet et le shader de fragment. Ils sont utilisés pour fournir des valeurs qui seront les mêmes pour tout ce qui est dessiné dans le cadre, telles que les positions et les intensités d'éclairage, la transformation globale et les détails de la perspective et ainsi de suite.
+	
+	III)- Les données WebGL	
+
+	1) -Types de données
+
+	Les différents types de données WebGL reposent sur les données GL SL. Il existe plusieurs types de données:
+	-Les basiques
+	-Les tableaux
+	-les matrices 
+
+
+	Links:https://developer.mozilla.org/fr/docs/Web/API/WebGL_API
+	         https://www.khronos.org/opengl/wiki/Data_Type_(GLSL)#Structs
+	         <script src="https://cdn.jsdelivr.net/npm/gl-matrix@3/gl-matrix.js"></script>
+		
+	2) -Les tampons
+	
+	Un objet tampon est un mécanisme fourni par WebGL qui indique une zone mémoire allouée dans le système. Dans ces objets tampons, sont stockées les données du modèles que nous souhaitons dessiner ( sommets, indices, couleurs etc..).
+	Il  existe deux types de tampons : 
+
+	-Objet Tampon Vertex (VBO)
+	-Objet Tampon d'Index (IBO)
+
+	2-a -Les objets tampon Vertex
+
+	Il contient les données par sommet du modèle graphique qui va être rendu.
+
+	2-b-Les objets tampon Index
+
+	 Il contient les indices (données d’index) du modèle graphique qui va être rendu.
+
+	3-Les Textures
+
+	C'est l'habillage du modèle que l'on souhaite déssiner fût-il en 2D ou en 3D. La texture peut être définie par un algorithme (texture procédurale) ou être constituée d'un tableau de pixels (image Bitmap par exemple)
+
+	IV- Introduction à la pratique
+
+	--Etapes d'Utilisation de WebGL--
+--Structuration HTML basique, avec la balise canvas contenant un id au choix.
+--Ensuite, on crée un script qui va contenir le lien GL-matrix (<script src="https://cdn.jsdelivr.net/npm/gl-matrix@3/gl-matrix.js"></script>)
+--On crée un autre script qui va contenir tout d'abord la fonction Main() qui va exécuter le programme
+--Ensuite on crée la fonction initBuffers() pour initiaiser les tampons
+--Puis on crée la fonction drawScene() pour dessiner la scène 
+--Après cela on crée la fonction initShaderProgram() pour initialiser les deux shaders
+--Pour finir, on crée enfin la fonction loadShader() pour afficher nos shaders. 
+		
+	**Activités pratiques avec WebGL**
+
+Lien de la documentation MDN: https://developer.mozilla.org/fr/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
+
+
+	--Commencer avec WebGL--
+
+
+Dans cet exercice, on va crée un grand carré Noir qui va servir de scène pour le modèle qui viendra juste après.
+--Code HTML-- 
+(Voir Fichier Index.html sur Github)
+
+
+	--Ajouter du contenu à WebGL--
+
+Dans cet exercice, on rajoute à notre carré noir un petit carré blanc. Plus de détails dans la documentation de cette section.
+--Code HTML-- 
+(Voir Fichier square.html sur Github)
+
+	--Ajouter des couleurs avec les shaders--
+
+Dans cet exercice, on rajoute à notre carré blanc, des couleurs aux différents sommets.
+--Code HTML-- 
+(Voir Fichier color.html sur Github)
+
+	--Animation des objets avec WebGL--
+
+Après avoir mis notre couleur dans le carré, nous allons ensuite l'animer. Il était question ici de faire une rotation de ce carré à présent coloré.
+--Code HTML-- 
+(Voir Fichier anim.html sur Github)
+
+
+	--Créer des Objets 3D avec WebGL--
+
+Dans cette partie, on essaie de transformer ce carré 2D en cube 3D et de l'animer dans l'espace grâce aux Axes X, Y et Z ainsi qu'avec des paramètres qui lui permettront d'effectuer une rotation.
+--Code HTML-- 
+(Voir Fichier anim3d.html sur Github)
+
+	--Les Textures avec WebGL--
+
+A notre cube, on souhaite maintenant ajouter de la texture en image Bitmap. 
+--Code HTML-- 
+(Voir Fichier texture.html sur Github)
